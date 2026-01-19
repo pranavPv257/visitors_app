@@ -13,7 +13,7 @@ class ServerClient {
     Map<String, String> headers = {
       "Content-Type": "application/json",
       "Accept": "application/json",
-      "country": "india",
+      "VOX-API-KEY": " Vm94ZWxWaXNpdG9yQm9vazIwMjU=",
     };
 
     try {
@@ -29,21 +29,19 @@ class ServerClient {
   /// Post request
 
   static Future<List> post(String url, BuildContext context, {Map<String, dynamic>? data, bool post = true}) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "country": "india",
-    };
-
+    Map<String, String> headers = {"Content-Type": "application/json", "VOX-API-KEY": "Vm94ZWxWaXNpdG9yQm9vazIwMjU="};
     try {
+      print(data);
       var body = json.encode(data);
       var response = await http
           .post(Uri.parse(url), body: post ? body : null, headers: headers)
           .timeout(const Duration(seconds: _timeout));
+      print(response.body);
       return _response(response, context);
     } on SocketException {
-      return [600, "No urbanistnet"];
+      return [600, "No internet"];
     } catch (e) {
+      print(e);
       return [600, e.toString()];
     }
   }

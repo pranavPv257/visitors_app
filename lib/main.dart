@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:visitors_app/const/app_pref.dart' show AppPref;
 import 'package:visitors_app/const/binding.dart';
 import 'package:visitors_app/const/colors.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
+                fontFamily: GoogleFonts.inter().fontFamily,
                 scaffoldBackgroundColor: AppColor.scaffoldColor,
                 appBarTheme: const AppBarTheme(
                   surfaceTintColor: AppColor.white,

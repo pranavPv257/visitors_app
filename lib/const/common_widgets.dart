@@ -33,7 +33,7 @@ Widget text({
       fontSize: size,
       color: color ?? AppColor.white,
       fontWeight: fontWeight,
-      fontFamily: fontFamily ?? GoogleFonts.urbanist().fontFamily,
+      fontFamily: fontFamily ?? GoogleFonts.inter().fontFamily,
       decoration: decoration,
       decorationColor: decorationColor,
       overflow: overFlow,
@@ -101,6 +101,8 @@ Widget button({
 }
 
 Widget buildCommonTextFormField({
+  double? hintFontSize,
+  TextStyle? style,
   bool expands = false,
   Color borderColor = Colors.black12,
   required Color bgColor,
@@ -136,7 +138,7 @@ Widget buildCommonTextFormField({
     onFieldSubmitted: onFieldSubmitted,
     onTapOutside: (event) => FocusScope.of(context).unfocus(),
     onTap: onTap,
-    style: TextStyle(fontFamily: GoogleFonts.urbanist().fontFamily, color: color, fontSize: 14),
+    style: style ?? TextStyle(fontFamily: GoogleFonts.inter().fontFamily, color: color, fontSize: 24),
     expands: expands,
     keyboardType: keyboardType,
     obscureText: obscureText,
@@ -168,7 +170,7 @@ Widget buildCommonTextFormField({
       fillColor: bgColor,
       filled: true,
       labelText: hintText,
-      labelStyle: TextStyle(color: hintTextColor, fontWeight: FontWeight.w300, fontSize: 15),
+      labelStyle: TextStyle(color: hintTextColor, fontWeight: FontWeight.w300, fontSize: hintFontSize ?? 34),
     ),
     validator: validator,
     maxLength: maxLength,
